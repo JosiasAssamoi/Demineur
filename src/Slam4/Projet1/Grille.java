@@ -5,8 +5,7 @@ import java.util.Random;
 public class Grille 
 {
 
-	
-	
+
 	  private  Cell[][] cases;
 	  private  final static   int colonne = 5;
 	  private final static int ligne = 5;
