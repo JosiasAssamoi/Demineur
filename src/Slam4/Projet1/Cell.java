@@ -8,7 +8,7 @@ public class Cell   {
 	boolean bombouverte= false ;
 	
 
-	 public Cell(int x, int y,boolean mine, boolean decouverte,boolean drapeau) {
+	 public Cell(boolean mine, boolean decouverte,boolean drapeau) {
 		this.mine =mine; 
 		this.decouverte=decouverte; 
 		valeur = 0 ;
