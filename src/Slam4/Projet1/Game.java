@@ -16,8 +16,9 @@ public class Game  {
 	  {
 		 Grille grille=  new Grille(pourcent);
 		
-		  Scanner scanner = new Scanner(System.in);
-		  	
+		  Scanner scannerr = new Scanner(System.in);
+	
+	
 		    while(grille.getCasesLibres() > 0)
 		    {
 		    System.out.println("nb cases libres "+ grille.getCasesLibres());
@@ -25,7 +26,8 @@ public class Game  {
 		    // boucle de jeu
 		      grille.Affiche();
 		      System.out.print("Veuillez entrer vos coordonnees x et y");
-		      String[] choix = scanner.nextLine().toUpperCase().split(" ");
+		      
+		      String[] choix = scannerr.nextLine().toUpperCase().split(" ");
 		      
 		      try
 		      {
@@ -51,8 +53,9 @@ public class Game  {
 
 		    grille.Affiche();
 		    System.out.println(grille.getCasesLibres() == 0 ? "Felicitation vous avez gagne." : "Vous avez perdu.");
-		   
-		    scanner.close();
+	
+		  
+		 
 	     
 	    } 
 
