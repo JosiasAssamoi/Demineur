@@ -23,11 +23,13 @@ public class Game  {
 	
 	 public void play() 
 	  {
+		 Grille.setColonne(5);
+		 Grille.setLigne(5);
 		 Grille grille=  new Grille(pourcent);
 		
 		  Scanner scannerr = new Scanner(System.in);
 	
-		  	if(triche.equals("O")) {System.out.println("mode triche on ");Grille.getTriche();}
+		  	if(triche.equals("O")) {System.out.println("mode triche activated =D ");Grille.getTriche();}
 		  	
 		    while(grille.getCasesLibres() > 0)
 		    {

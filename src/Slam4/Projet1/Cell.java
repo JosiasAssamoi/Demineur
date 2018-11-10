@@ -3,22 +3,23 @@ public class Cell   {
 	
 
 
-	private boolean mine=false, decouverte, drapeau;
+	private boolean mine=false, decouverte, drapeau,vide;
 	int valeur ;
-	boolean bombouverte= false ;
 	
 
-	 public Cell(boolean mine, boolean decouverte,boolean drapeau) {
+	 public Cell(boolean mine, boolean decouverte,boolean drapeau,boolean vide) {
 		this.mine =mine; 
 		this.decouverte=decouverte; 
 		valeur = 0 ;
 		this.drapeau=drapeau;
+		this.vide=vide;
 		
 	}
 
 		// méthodes (mutateurs et assesseurs)
+		public boolean isVide()		{  return vide; }
+		public void setVide(boolean b)		{ vide= b; }
 		public boolean isMine()		{  return mine; }
-		public void bombOuverte(boolean etat)		{ bombouverte= etat ;  }
 		public boolean isDecouverte() 	{ return decouverte; }
 		public boolean isDrapeau()		{ return drapeau; }
 		public int getValeur()			{ return valeur; }

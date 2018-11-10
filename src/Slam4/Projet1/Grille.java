@@ -34,7 +34,7 @@ public class Grille
 	  
 	  public static void setCases(int x, int y) {
 		 
-		  cases[x][y]= new Cell(false,false,false);
+		  cases[x][y]= new Cell(false,false,false,true);
 	  }
 
 	public int getCasesLibres() {
@@ -73,8 +73,11 @@ public class Grille
 	      {
 			
 	        for(int y1 = -1; y1 < 2; y1++){
-	          if(Cell.isValide(randomx+x1,randomy+y1) && (!Grille.getCases((randomx+x1),(randomy+y1)).isMine())) 
+	          if(Cell.isValide(randomx+x1,randomy+y1) && (!Grille.getCases((randomx+x1),(randomy+y1)).isMine())) {
 	        	  Grille.getCases((randomx+x1),(randomy+y1)).setValeur(+1);
+	          	  Grille.getCases((randomx+x1),(randomy+y1)).setVide(false);
+	          }
+	          
 	        }
 	      } 
 		  bombs--; 
@@ -92,8 +95,8 @@ public class Grille
 	      {
 	        chaineformate.append("[\t").append(y==-1 ? x
 	          : Grille.getCases(x,y).isDrapeau() ? "P"
-	          : Grille.getCases(x,y).isDecouverte() ? cases[x][y].isMine() ? "+"
-	          : Grille.getCases(x,y).getValeur()==0  ? "Vide"
+	          : Grille.getCases(x,y).isDecouverte() ? Grille.getCases(x,y).isMine() ? "+"
+	          : Grille.getCases(x,y).isVide()  ? "Vide"
 	          : Grille.getCases(x,y).getValeur()
 	          : "?" ).append("\t]");
 	      }
@@ -127,7 +130,7 @@ public class Grille
 	    else {  Grille.getCases(x,y).setDecouverte(true);
 	    casesLibres--;}
 	    
-	    if(Grille.getCases(x,y).getValeur() == 0) {
+	    if(Grille.getCases(x,y).isVide()) {
 	    	 deblaye(x-1, y);
 	    	 deblaye(x-1, y+1);
 	    	 deblaye(x+1,y-1);
