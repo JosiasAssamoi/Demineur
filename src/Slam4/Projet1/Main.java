@@ -1,6 +1,17 @@
 package Slam4.Projet1;
-import java.util.InputMismatchException;
 import java.util.Scanner;
+
+/**
+ * <p>Cette classe represente le Menu principal du Démineur. Elle appelle a chaque premier lancement une méthode regle() qui affiche les règles.</p>
+ *<p> Un menu est proposé avec differents niveaux dont un mode triche qui permet d'avoir 50 % de bombes devoilées ou encore un mode personnalisé qui 
+ * permet de choisir son nombre de ligne de colonne, un pourcentage de bombe et si l'on souhaite utiliser le mode triche ou non. </p>
+ *Le nombre bombes est exprimé en pourcentage pour ne pas avoir de conflit avec la taille de la supposée matrice.
+ * Toutes les Exceptions en entrée non pas été gerées.. 
+ * 
+ *
+ * 
+ */
+
 
 public class Main {
 
@@ -20,7 +31,7 @@ public static void main(String... args){
 	do { 
 	System.out.println(" ***\t MENU \t***");
 	System.out.println("Taper 1 pour le mode facile \nTaper 2 pour le mode normal \nTaper 3 Pour le mode Hard \n"
-			+ "Taper 4 pour personnaliser votre partie \nTaper 5 pour le mode triche \nTaper 6 pour quitter");
+	+ "Taper 4 pour personnaliser votre partie \nTaper 5 pour le mode triche \nTaper 6 pour quitter");
 	choix = scanner.nextInt(); 
 	Game game = null;
 	
