@@ -10,8 +10,8 @@ public class Grille
 	  
 
 
-	private  final static   int colonne = 5;
-	private final static int ligne = 5;
+	private  static   int colonne = 5;
+	private  static int ligne = 5;
     private   int casesLibres;
 	
 	public static int getLigne() {
@@ -21,6 +21,13 @@ public class Grille
 	  public static int getColonne() {
 		return colonne;
 	}
+		public  static  void setLigne(int ligne) {
+			Grille.ligne = ligne;
+		}
+		  
+		  public static void  setColonne(int colonne) {
+			  Grille.colonne = colonne;
+		}
 	
 	  
 	public static Cell getCases(int x, int y) {
@@ -44,7 +51,7 @@ public class Grille
 		for(int x = 0; x<colonne; x++)
 			for(int y=0; y<ligne; y++)
 				Grille.setCases(x, y);
-	    generate(pourcent < 12 ? 12 : pourcent > 90 ? 90 : pourcent, new Random());
+	    generate(pourcent, new Random());
 	  
 	  }
 	
@@ -88,7 +95,7 @@ public class Grille
 	        chaineformate.append("[\t").append(y==-1 ? x
 	          : Grille.getCases(x,y).isDrapeau() ? "P"
 	          : Grille.getCases(x,y).isDecouverte() ? cases[x][y].isMine() ? "+"
-	          : Grille.getCases(x,y).getValeur()==0  ? " "
+	          : Grille.getCases(x,y).getValeur()==0  ? "Vide"
 	          : Grille.getCases(x,y).getValeur()
 	          : "?" ).append("\t]");
 	      }
