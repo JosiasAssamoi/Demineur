@@ -3,12 +3,21 @@ import java.util.Scanner;
 
 public class Game  {
 
-	private int pourcent;
-
-	public Game(int pourcent) {
+	private static int pourcent;
+	private String triche="N" ;
+	public Game(int pourcent,String triche) {
 	
-		this.pourcent = pourcent;
+		Game.pourcent = pourcent;
+		this.triche= triche;
 		
+	}
+	public static int getPourcent() {
+		return pourcent;
+	}
+	
+	public Game(int pourcent) {
+		
+		this.pourcent = pourcent;
 		
 	}
 	
@@ -18,7 +27,8 @@ public class Game  {
 		
 		  Scanner scannerr = new Scanner(System.in);
 	
-	
+		  	if(triche.equals("O")) {System.out.println("mode triche on ");Grille.getTriche();}
+		  	
 		    while(grille.getCasesLibres() > 0)
 		    {
 		    System.out.println("nb cases libres "+ grille.getCasesLibres());

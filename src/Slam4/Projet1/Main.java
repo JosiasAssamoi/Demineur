@@ -1,5 +1,6 @@
 package Slam4.Projet1;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -7,8 +8,8 @@ public class Main {
   static int choix = 0; 
   static int pourcent;
   static Scanner scanner = new Scanner(System.in);
- 
-  
+  static String triche="N";
+
  public static void regle() 
  {
 			
@@ -24,8 +25,9 @@ public static void main(String... args){
    
 	System.out.println(" ***\t MENU \t***");
 	System.out.println("Taper 1 pour le mode facile \nTaper 2 pour le mode normal \nTaper 3 Pour le mode Hard \n"
-			+ "Taper 4 pour personnaliser votre partie \nTaper 5 pour quitter");
+			+ "Taper 4 pour personnaliser votre partie \nTaper 5 pour le mode triche \nTaper 6 pour quitter");
 	choix = scanner.nextInt();
+	 
 	Game game = null;
 	if(choix==1)game= new Game(12);
 	else if(choix==2) game= new Game(25);
@@ -37,12 +39,17 @@ public static void main(String... args){
 	Grille.setColonne(scanner.nextInt());
     System.out.println("Un nombre de ligne?");
 	Grille.setLigne(scanner.nextInt());
-    game= new Game(pourcent);}
-	else if(choix==5) System.out.println("Ce n'est qu'un au revoir .....");
+	System.out.println("Voulez vous activer le mode triche O / N ?");
+	scanner.nextLine();
+	triche=scanner.nextLine().toUpperCase();
+	System.out.println(triche);
+    game= new Game(pourcent,triche);}
+	else if(choix==5) game= new Game(99,triche="O");
+	else if(choix==6) System.out.println("Ce n'est qu'un au revoir .....");
 	else System.out.println("Votre choix n'est pas compréhensible.");
-	if(choix==1 || choix==2 || choix==3 || choix==4)game.play();
+	if(choix==1 || choix==2 || choix==3 || choix==4 || choix==5)game.play();
 	
-	}while(choix!=5);
+	}while(choix!=6);
 	scanner.close();
 
   }

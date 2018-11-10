@@ -8,10 +8,8 @@ public class Grille
 
 	  private static  Cell[][] cases;
 	  
-
-
-	private  static   int colonne = 5;
-	private  static int ligne = 5;
+	private  static   int colonne = 3;
+	private  static int ligne = 3;
     private   int casesLibres;
 	
 	public static int getLigne() {
@@ -147,4 +145,19 @@ public class Grille
 		Grille.getCases(x,y).setDrapeau() ;
 		
 	} 
+	public static void getTriche() {
+		Random randomTriche = new Random();
+		int drapeautriche= ((colonne * ligne * Game.getPourcent() / 100)/2);
+	    int compteur=0;
+		do {
+			 int rx = randomTriche.nextInt(colonne);
+			 int ry = randomTriche.nextInt(ligne);
+			 //System.out.println("cases"+rx+" "+ry+"bombe ?"+Grille.getCases(rx, ry).isMine()+" drapeau ?"+Grille.getCases(rx, ry).isDrapeau());
+	          if(Grille.getCases(rx,ry).isMine() && !Grille.getCases(rx,ry).isDrapeau() ) {
+	       //  System.out.println("On place un drapeau a la case"+rx+" "+ry+"compteur ="+compteur);
+	         Grille.getCases(rx,ry).setDrapeau();
+	         compteur++ ; }
+	          else continue ;
+	    }while(compteur != drapeautriche );
+	}
 }
