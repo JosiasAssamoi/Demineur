@@ -21,6 +21,8 @@ public class Game  {
 
 	private static int pourcent;
 	private String triche="N" ;
+	private double startime,endtime,tempecoulee;
+	
 	public Game(int pourcent,String triche) {
 	
 		Game.pourcent = pourcent;
@@ -53,6 +55,7 @@ public class Game  {
 		  	
 		  // Tant que qu'il y a  des cases libres on reste dans la partie/grille. 
 		    while(grille.getCasesLibres() > 0){
+		    	startime=System.currentTimeMillis();
 			    System.out.println("Nombre de cases à déminer : "+ grille.getCasesLibres());
 			    grille.Affiche();
 			    System.out.print("Veuillez entrer vos coordonnees x et y "); 
@@ -83,11 +86,19 @@ public class Game  {
 		        + "Attention a ne pas depasser "+(Grille.getColonne()-1) +" pour les colonnes et "+(Grille.getLigne()-1)+"pour les lignes /!\\ /!\\ /!\\ ") ;  }  
 		        catch(NumberFormatException e){
 				    System.out.println("/!\\ /!\\ /!\\  Veuillez entrer les coordonées en utilisant les chiffres proposés /!\\ /!\\ /!\\ ") ;  }
+		        endtime=System.currentTimeMillis();     
 		  }
 		  // Des que l'on a gagné ou perdu on affiche une derniere fois la grille  
 		  grille.Affiche();
 		  // condition ternaire pour verifier la gagne
 		  System.out.println(grille.getCasesLibres() == 0 ? "Felicitation vous avez gagne." : "Vous avez perdu.");
+		  System.out.println("Vous avez joué cette partie en "+getTempsEcoulee(startime,endtime)+" secondes");
 	    } 
+	 
+	 public double getTempsEcoulee(double startime, double endtime) {
+		 
+		 tempecoulee=((endtime-startime)/1000); 
+		 return tempecoulee; 
+	 }
 
 }
