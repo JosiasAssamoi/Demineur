@@ -1,4 +1,5 @@
 package Slam4.Projet1;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -26,21 +27,18 @@ public class Main {
 	+ "automatiquement que lorsque vous aurez perdu ou (nous l'esperons) gagné ... =) Goog Luck!! \n");
  }
  
-public static void main(String... args){
+public static void main(String... args) throws InputMismatchException{
 	regle();
 	do { 
 	System.out.println(" ***\t MENU \t***");
 	System.out.println("Taper 1 pour le mode facile \nTaper 2 pour le mode normal \nTaper 3 Pour le mode Hard \n"
-	+ "Taper 4 pour personnaliser votre partie \nTaper 5 pour le mode triche \nTaper 6 pour quitter");
+	+ "Taper 4 pour personnaliser votre partie \nTaper 5 pour le mode triche rapide \nTaper 6 pour quitter");
 	choix = scanner.nextInt(); 
 	Game game = null;
 	
 	if(choix==1)game= new Game(12);
-	
 	else if(choix==2) game= new Game(25);
-	
 	else if(choix==3) game= new Game(50);
-	
 	else if(choix==4) { 
 	System.out.println("Veuillez donner un pourcentage de bombes ");
     pourcent = scanner.nextInt(); 
@@ -52,20 +50,22 @@ public static void main(String... args){
 	scanner.nextLine();
 	try {
 	triche=scanner.nextLine().toUpperCase();
-	if(triche.length() < 1 ||  !triche.equals("O") ||  !triche.equals("N") ) throw new Exception();
+	if (triche.length() != 1 || !triche.equals("O")  && !triche.equals("N")  ) throw new Exception();
 	}
 	catch(Exception e) {
 		System.out.println("Vous n'avez pas activé le mode triche car nous n'avons pas compris votre reponse entre O ou N ");
 	}
+
 	
     game= new Game(pourcent,triche);
     }
-	
 	else if(choix==5) game= new Game(75,triche="O");
-	
 	else if(choix==6) System.out.println("Ce n'est qu'un au revoir .....");
 	else System.out.println("Votre choix n'est pas compréhensible.");
-	if(choix==1 || choix==2 || choix==3 || choix==4 || choix==5)game.play();
+	
+	if(choix==1 || choix==2 || choix==3 || choix==5) { Grille.setColonne(5);Grille.setLigne(5); game.play();}
+	else if(choix==4 )
+	game.play();
 	
 	}while(choix!=6);
 	scanner.close();
