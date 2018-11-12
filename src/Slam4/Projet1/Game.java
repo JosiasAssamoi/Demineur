@@ -55,7 +55,7 @@ public class Game  {
 		    while(grille.getCasesLibres() > 0){
 			    System.out.println("Nombre de cases à déminer : "+ grille.getCasesLibres());
 			    grille.Affiche();
-			    System.out.print("Veuillez entrer vos coordonnees x et y"); 
+			    System.out.print("Veuillez entrer vos coordonnees x et y "); 
 			    String[] choix = scanner.nextLine().toUpperCase().split(" ");
 		      
 		        try{

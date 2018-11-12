@@ -45,7 +45,7 @@ public class Cell   {
 	 * 
 	 * @param x Fait réference au numero de la colonne en question
 	 * @param y Fait réference au numero de la ligne en question
-	 * @return true si les coordonnées de la cases sont plus grand que 0 et qu'ils sont compris dans la taille de la matrice. Sinon elle retourne false.
+	 * @return true si les coordonnées de la cases sont plus grands que 0 et qu'ils sont compris dans la taille de la matrice. Sinon elle retourne false.
 	 
 	 */
 	public static boolean isValide(int x, int y) {

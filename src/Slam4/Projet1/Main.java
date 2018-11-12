@@ -40,7 +40,7 @@ public static void main(String... args) throws InputMismatchException{
 	else if(choix==2) game= new Game(25);
 	else if(choix==3) game= new Game(50);
 	else if(choix==4) { 
-	System.out.println("Veuillez donner un pourcentage de bombes ");
+	System.out.println("Veuillez donner un pourcentage de bombes");
     pourcent = scanner.nextInt(); 
     System.out.println("Un nombre de colonne?");
 	Grille.setColonne(scanner.nextInt());

@@ -37,9 +37,10 @@ public class Grille
 			Grille.ligne = ligne;
 		}
 		  
+	  
 	  /**
 	   * La fonction permet d'initialiser un nombre de colonne
-	   * @param ligne le nombre de colonne souhaité
+	   * @param colonne le nombre de colonne souhaité
 	   */  
 	public static void  setColonne(int colonne) {
 			  Grille.colonne = colonne;
