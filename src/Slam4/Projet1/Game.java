@@ -1,7 +1,6 @@
 package Slam4.Projet1;
 import java.util.Scanner;
 
-import javax.swing.JPanel;
 
 /**
  * 
@@ -21,7 +20,7 @@ public class Game  {
 
 	private static int pourcent;
 	private String triche="N" ;
-	private double startime,endtime,tempecoulee;
+	private double startime,endtime,tempecoule;
 	
 	public Game(int pourcent,String triche) {
 	
@@ -92,13 +91,18 @@ public class Game  {
 		  grille.Affiche();
 		  // condition ternaire pour verifier la gagne
 		  System.out.println(grille.getCasesLibres() == 0 ? "Felicitation vous avez gagne." : "Vous avez perdu.");
-		  System.out.println("Vous avez joué cette partie en "+getTempsEcoulee(startime,endtime)+" secondes");
+		  System.out.println("Vous avez joué cette partie en "+getTempsEcoule(startime,endtime)+" secondes");
 	    } 
-	 
-	 public double getTempsEcoulee(double startime, double endtime) {
+	 /**
+	  * 
+	  * @param startime temsps actuel en millis secondes au debut de la partie
+	  * @param endtime temps actuel en millis secondes a la fin de la partie
+	  * @return Retourne le temps ecoulé en secondes
+	  */
+	 public double getTempsEcoule(double startime, double endtime) {
 		 
-		 tempecoulee=((endtime-startime)/1000); 
-		 return tempecoulee; 
+		 tempecoule=((endtime-startime)/1000); 
+		 return tempecoule; 
 	 }
 
 }
